@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeLoginComponent } from './home-login/home-login.component';
 import { EnrollFormComponent } from './enroll-form/enroll-form.component';
+import { WelcomeMessageComponent } from './welcome-message/welcome-message.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeLoginComponent,
-    EnrollFormComponent
+    EnrollFormComponent,
+    WelcomeMessageComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
