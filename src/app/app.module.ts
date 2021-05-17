@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,9 @@ import { FooterComponent } from './footer/footer.component';
 import { AdminDataTableComponent } from './admin-data-table/admin-data-table.component';
 import { AdminNavbarsComponent } from './admin-navbars/admin-navbars.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from './auth.service';
+import { TrainerDummyPageComponent } from './trainer-dummy-page/trainer-dummy-page.component';
 
 
 
@@ -23,14 +27,19 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     AdminDataTableComponent,
     AdminNavbarsComponent,
     AdminDashboardComponent,
+    TrainerDummyPageComponent,
    
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

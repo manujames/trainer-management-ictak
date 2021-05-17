@@ -29,32 +29,66 @@
                     </div> -->
                     
                     <br>
-                    <!-- Login Form -->
-                    
-                    
-                    <div class="row px-3">
-                        <select class="form-select form-select-sm user-sel" aria-label=".form-select-sm example">
-                            <option selected>Select User</option>
-                            <option value="Admin">Admin</option>
-                            <option value="Trainer">Trainer</option>
-                          </select>
-                    </div>
-                    <br>
-                     
-                        <div class="row px-3"> <label class="mb-1">
-                            <h6 class="mb-0 text-sm">Email Address</h6>
-                            </label> <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address"> </div>
-                        <div class="row px-3"> <label class="mb-1">
-                                <h6 class="mb-0 text-sm">Password</h6>
-                            </label> <input type="password" name="password" placeholder="Enter password"> </div>
-                        <br>
-                        <div class="row align-items-center remember">
-                            <input type="checkbox">Remember Me
+                    <!-- Success/error message card -->
+                    <div id="success" class="text-center" [class.d-none]='loginState=="none"'>
+                        <div class='alert alert-warning' [class.d-none]='loginState!="connecting"'>
+                            <strong>Loging in..</strong>
                         </div>
-                        <div class="row mb-3 px-3">
+                        <div class='alert alert-success' [class.d-none]='loginState!="success"'>
+                            <strong>Login successful</strong>
+                        </div>
+                        <div class='alert alert-danger' [class.d-none]='loginState!="error"'>
+                            <strong>{{errorMsg}}</strong>
+                        </div>
+                    </div>
+                    <!-- End of success/error message card -->
+                    
+                    <!-- Login Form -->
+                    <form id="loginForm" name="loginForm" #userLogin="ngForm" (ngSubmit)="login()" novalidate=true>
+                        <div class="row px-3">
+                            <select name="role" class="form-control form-select form-select-md user-sel" aria-label=".form-select-md example" 
+                                required #role='ngModel' [(ngModel)]='user.role'>
+                                    <option value='' selected>Select User</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="trainer">Trainer</option>
+                            </select>
+                        </div>
+                        <p class='text-danger' [class.d-none]='role.valid || (role.untouched && role.pristine && !(email.valid && password.valid))'>
+                            Please select a user role.
+                        </p>
+                        <br>
                         
-                            <a routerLink="/login"> <button type="submit" class="btn btn-blue text-center">Login</button></a> </div>
-                        <div class="row mb-4 px-3"> <small class="font-weight-bold">New to ICTAK? <a routerLink="/enroll" class="text-danger ">Enroll</a></small> </div>
+                        <div class="row px-3"> 
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Email Address</h6></label> 
+                            <input class="form-control" type="email" name="email" placeholder="Enter a valid email address"
+                                required pattern='^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}'
+                                #email='ngModel' [class.is-valid]='email.valid' [class.is-invalid]='email.invalid && email.touched' 
+                                [(ngModel)]='user.email'/>
+                            <p class='text-danger' [class.d-none]='email.valid || email.untouched'>Please enter a valid email.</p>
+                        </div>
+                        <div class="row px-3"> 
+                            <label class="mb-1"><h6 class="mb-0 text-sm">Password</h6></label> 
+                            <input class="form-control" type="password" name="password" placeholder="Enter password" required minlength="8"
+                                #password='ngModel' [class.is-valid]='password.valid' [class.is-invalid]='password.invalid && password.touched' 
+                                [(ngModel)]='user.password'/>
+                            <div class='text-danger' [class.d-none]='password.valid || password.untouched'>
+                                <span [class.d-none]='!(password.errors && password.errors.required)'>Password can not be blank.</span> 
+                                <span [class.d-none]='!(password.errors && password.errors.minlength)'>Password should be minimum 8 characters</span> 
+                            </div>
+                        </div>
+                        <br>
+                        <!-- <div class="row align-items-center remember">
+                            <input type="checkbox">Remember Me
+                        </div> -->
+                        <div class="row mb-3 px-3"> 
+                            <button type="submit" class="btn btn-blue text-center" [disabled]='userLogin.form.invalid'>Login</button>
+                        </div>
+                    </form>
+                    <div class="row mb-4 px-3">
+                        <small class="font-weight-bold">New to ICTAK?
+                            <a routerLink="/enroll" class="text-danger ">Enroll</a>
+                        </small>
+                    </div>
                 <!-- End of Login form -->
                 </div>
             </div>
