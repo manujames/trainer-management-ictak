@@ -7,6 +7,11 @@ import { HomeLoginComponent } from './home-login/home-login.component';
 import { EnrollFormComponent } from './enroll-form/enroll-form.component';
 import { WelcomeMessageComponent } from './welcome-message/welcome-message.component';
 import { FooterComponent } from './footer/footer.component';
+import { AdminDataTableComponent } from './admin-data-table/admin-data-table.component';
+import { AdminNavbarsComponent } from './admin-navbars/admin-navbars.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+
+
 
 @NgModule({
   declarations: [
@@ -14,11 +19,16 @@ import { FooterComponent } from './footer/footer.component';
     HomeLoginComponent,
     EnrollFormComponent,
     WelcomeMessageComponent,
-    FooterComponent
+    FooterComponent,
+    AdminDataTableComponent,
+    AdminNavbarsComponent,
+    AdminDashboardComponent,
+   
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
