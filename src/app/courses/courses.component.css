@@ -1,0 +1,69 @@
+
+table th{
+    color: rgb(38, 105, 131); ;
+    }
+    .tablemsr{
+        margin-top: 10%;
+        margin-left: 20%;
+        /* margin-right: 10%; */
+    }
+    /* .tablemsr th{
+        width: 60px;
+    }
+    .tablemsr td{
+        width: 40px;
+    } */
+    
+    /* Styling for sort icon */
+    .fapd{
+        /* border: 1px solid red; */
+        margin-left: 30%;
+        margin-right: -50px;
+        position: relative;
+    }
+    /* Styling for filter icon */
+    .filpd{
+        /* border: 1px solid red; */
+        margin-right: 10px;
+        position: relative;
+        margin-left: -15px;
+    
+    }
+    .heading{
+        width: 100%;
+        color: rgb(24, 68, 88);
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        text-align: justify;
+        
+    }
+    .heading h4{
+        padding-left: 20px;
+        margin-left: 20px;
+        padding-bottom: 10px;
+    }
+    
+    .fa-search,.fa-filter,.fa-sort{
+        color: rgb(38, 105, 131);
+    }
+    
+    /* Pagination */
+    .gallery-bottom .pagination {
+        margin-top: 0px;
+        margin-left: 250px;
+      }
+      
+      .pagination > li > a, .pagination > li > span {
+        background-color: #ccc;
+        padding: 3px 9px;
+        color: #fff;
+        border: 0px;
+      }
+      
+      .pagination > li > a {
+        margin-right: 5px;
+      }
+      
+      .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+        background-color: #32c5d2;
+      }
+    

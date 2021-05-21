@@ -14,6 +14,10 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { TrainerDummyPageComponent } from './trainer-dummy-page/trainer-dummy-page.component';
+import { RequestsComponent } from './requests/requests.component';
+import { SettingsComponent } from './settings/settings.component';
+import { CoursesComponent } from './courses/courses.component';
+import { StatcardsComponent } from './statcards/statcards.component';
 
 
 
@@ -28,6 +32,10 @@ import { TrainerDummyPageComponent } from './trainer-dummy-page/trainer-dummy-pa
     AdminNavbarsComponent,
     AdminDashboardComponent,
     TrainerDummyPageComponent,
+    RequestsComponent,
+    SettingsComponent,
+    CoursesComponent,
+    StatcardsComponent,
    
   ],
   imports: [
