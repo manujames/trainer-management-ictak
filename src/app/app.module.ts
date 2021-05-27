@@ -4,20 +4,23 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeLoginComponent } from './home-login/home-login.component';
-import { EnrollFormComponent } from './enroll-form/enroll-form.component';
-import { WelcomeMessageComponent } from './welcome-message/welcome-message.component';
-import { FooterComponent } from './footer/footer.component';
-import { AdminDataTableComponent } from './admin-data-table/admin-data-table.component';
-import { AdminNavbarsComponent } from './admin-navbars/admin-navbars.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { HomeLoginComponent } from './index/home-login/home-login.component';
+import { EnrollFormComponent } from './index/enroll-form/enroll-form.component';
+import { WelcomeMessageComponent } from './index/welcome-message/welcome-message.component';
+import { FooterComponent } from './index/footer/footer.component';
+import { AdminDataTableComponent } from './admin/admin-data-table/admin-data-table.component';
+import { AdminNavbarsComponent } from './admin/admin-navbars/admin-navbars.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
-import { TrainerDummyPageComponent } from './trainer-dummy-page/trainer-dummy-page.component';
-import { RequestsComponent } from './requests/requests.component';
-import { SettingsComponent } from './settings/settings.component';
-import { CoursesComponent } from './courses/courses.component';
-import { StatcardsComponent } from './statcards/statcards.component';
+// import { TrainerDummyPageComponent } from './trainer-dummy-page/trainer-dummy-page.component';
+import { RequestsComponent } from './admin/requests/requests.component';
+import { SettingsComponent } from './admin/settings/settings.component';
+import { CoursesComponent } from './admin/courses/courses.component';
+import { StatcardsComponent } from './admin/statcards/statcards.component';
+import { TrainerComponent } from './trainer/trainer.component';
+import { ProfileComponent } from './trainer/profile/profile.component';
+import { TrainerNavbarsComponent } from './trainer/trainer-navbars/trainer-navbars.component';
 
 
 
@@ -31,11 +34,14 @@ import { StatcardsComponent } from './statcards/statcards.component';
     AdminDataTableComponent,
     AdminNavbarsComponent,
     AdminDashboardComponent,
-    TrainerDummyPageComponent,
+    // TrainerDummyPageComponent,
     RequestsComponent,
     SettingsComponent,
     CoursesComponent,
     StatcardsComponent,
+    TrainerComponent,
+    ProfileComponent,
+    TrainerNavbarsComponent,
    
   ],
   imports: [

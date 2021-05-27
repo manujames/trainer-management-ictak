@@ -1,0 +1,20 @@
+header{
+    background-color: #444343;
+}
+.navbar-brand
+{
+    margin-left: 35px;
+}
+.navbar-header
+{
+    margin-left: 0px;
+}
+.nav 
+{
+    margin-right: 25px;
+}
+.login{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#2781aa ;
+}
+
