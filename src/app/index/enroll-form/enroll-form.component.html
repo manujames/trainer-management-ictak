@@ -1,186 +1,80 @@
-<div class="container register">
+<div class="container">
     <div class="row">
-        <div class="col-md-3 register-left">
-            <img src="download.png" alt=""/>
-            <!-- https://image.ibb.co/n7oTvU/logo_white.png -->
-            <h3>Welcome</h3>
-            <!-- <p>You are 30 seconds away from earning your own money!</p> -->
-            <input type="submit" name="" value="Login"/><br/>
+        <div class="col-md-12">
+  <nav class="navbar navbar-expand-lg bg-info  topnav navbar-fixed logo">
+      <img src="../../../assets/logo.png" height="80px" width="80px" style="margin-left: 5%;">
+      <h6 class="welcome ml-auto">Welcome</h6>
+    </nav>
+</div>
+        <div class="col-md-3 ">
+            
+            
         </div>
-        <div class="col-md-9 register-right">
-            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                <!-- <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Employee</a>
-                </li> -->
-                <!-- <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Hirer</a>
-                </li> -->
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                    <h3 class="register-heading">Trainer Enrollment Form</h3>
-                    <div class="row register-form">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="First Name *" value="" />
+        <div class="col-md-6 formblock">
+            <h1>Trainer Enrollment Form</h1>
+            <div class="card">
+                <form id="reg_form" name="reg_form" #trainerReg="ngForm">
+                    <div class="controls">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="fname">Firstname *</label> <input id="fname" type="text" name="fname" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required."> </div>
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="lname">Lastname *</label> <input id="lname" type="text" name="lname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required."> </div>
                             </div>
-                            <div class="form-group">
-                                <input type="textarea" class="form-control" placeholder="Address *" value="" />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="Gender">Gender *</label> <select id="Gender" name="Gender" class="form-control" required="required">
+                                        <option value="Male" selected>Male</option>
+                                        <option value="Female">Female</option>                                   
+                                    </select> </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
-                            </div> -->
-                            <div class="form-group">
-                                <!-- <label class="mb-1">
-                                    <h6 class="mb-0 text-sm">Highest Qualification</h6>
-                                    </label>  -->
-                                <select class="form-control">
-                                    <option selected>Highest Qualification *</option>
-                                    <option value="BE">B.Tech/BE</option>
-                                    <option value="ME">M.Tech/ME</option>
-                                    <option value="BCA">BCA</option>
-                                    <option value="MCA">MCA</option>
-                                    <option value="others">Others</option>
-                                </select>
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="qualification">Qualification *</label> <select id="qualification" name="qualification" class="form-control" required="required">
+                                        <option value="Male" selected>Male</option>
+                                        <option value="Female">Female</option>                                   
+                                    </select> </div>
                             </div>
-                            <div class="form-group">
-                                <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Current Company *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Current Destination *" value="" />
-                            </div>
-                            <!-- <div class="form-group">
-                                <div class="maxl">
-                                    <label class="radio inline"> 
-                                        <input type="radio" name="gender" value="male" checked>
-                                        <span> Male </span> 
-                                    </label>
-                                    <label class="radio inline"> 
-                                        <input type="radio" name="gender" value="female">
-                                        <span>Female </span> 
-                                    </label>
-                                </div>
-                            </div> -->
                             
                             
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="phone">Phone *</label> <input id="phone" type="text" name="phone" class="form-control" placeholder="Please enter your Phone Number  *" required="required"> </div>
                             </div>
-                            <div class="form-group">
-                                <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="email">Email *</label> <input id="email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required"> </div>
                             </div>
-                            <div class="form-group">
-                                <select class="form-control">
-                                    <option selected>Gender *</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>                                   
-                                </select>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="company">Company *</label> <input id="company" type="text" name="company" class="form-control" placeholder="Current Company *" required="required"> </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <select class="form-control">
-                                    <option selected>ICTAK Course Handling</option>
-                                    <option value="CSA">Cyber Security Analyst</option>
-                                    <option value="XLP">XR-Learning Path</option>
-                                    <option value="DSA">Certified Specialist in Data Science & Analytics</option>
-                                    <option value="FSD">Certified Specialist in Full Stack Development</option>
-                                    <option value="RPA">Robotic process automation</option>
-                                    <option value="DM">Digital Marketing</option>
-                                </select>
-                            </div> -->
-
-                            <!-- <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" value="CSA">Cyber Security Analyst
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" value="XLP">XR-Learning Path
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" value="DSA" >Certified Specialist in Data Science & Analytics
-                                </label>
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="designation">Designation *</label> <input id="designation" type="text" name="designation" class="form-control" placeholder="Current Designation *" required="required"> </div>
                             </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" value="FSD" >Certified Specialist in Full Stack Development
-                                </label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="address">Address *</label> <input id="address" type="textarea" name="address" class="form-control" placeholder="Permanent Address *" required="required"> </div>
                             </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" value="RPA" >Robotic process automation
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                  <input type="checkbox" class="form-check-input" value="DM" >Digital Marketing
-                                </label>
-                            </div> -->
-
-
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Skill Set *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <!-- <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Current Destination *" value="" /> -->
-                                <input class="form-control" minlength="10" maxlength="10" name="txtEmpPhone" type="file">
-                                <!-- id="formFileSm" -->
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="skills">Skills *</label> <input id="skills" type="text" name="skills" class="form-control" placeholder="Please enter your Skill set *" required="required"> </div>
 
                             </div>
-                            <input type="submit" class="btnRegister"  value="Register"/>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group"> <label for="photo">Photo *</label> <input id="photo" type="file" name="photo" class="form-control"> </div>
+                                
+                            </div>
+                            <div class="col-md-12"> <input type="submit" class="btn btn-info btn-send pt-2 btn-block " value="Submit"> </div>
                         </div>
                     </div>
-                </div>
-                <!-- <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <h3  class="register-heading">Apply as a Hirer</h3>
-                    <div class="row register-form">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="First Name *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
-                            </div>
-
-
-                        </div>
-                        <div class="col-md-6">
-                            <!-- <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password *" value="" />
-                            </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
-                            </div> -->
-                            <!-- <div class="form-group">
-                                <select class="form-control">
-                                    <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
-                                    <option>What is your Birthdate?</option>
-                                    <option>What is Your old Phone Number</option>
-                                    <option>What is your Pet Name?</option>
-                                </select>
-                            </div> -->
-                            <!-- <div class="form-group">
-                                <input type="text" class="form-control" placeholder="`Answer *" value="" />
-                            </div>
-                            <input type="submit" class="btnRegister"  value="Register"/>
-                        </div>
-                    </div>
-                </div>  -->
+                </form>
             </div>
         </div>
+        <div class="col-md-3"></div>
     </div>
-
 </div>
