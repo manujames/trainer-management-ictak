@@ -21,6 +21,11 @@ import { StatcardsComponent } from './admin/statcards/statcards.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { ProfileComponent } from './trainer/profile/profile.component';
 import { TrainerNavbarsComponent } from './trainer/trainer-navbars/trainer-navbars.component';
+import { PasswordResetComponent } from './index/password-reset/password-reset.component';
+import { CalenderComponent } from './trainer/calender/calender.component';
+import { ChangePasswordComponent } from './trainer/change-password/change-password.component';
+import { PasswordResetMessageComponent } from './index/password-reset-message/password-reset-message.component';
+import { TrainerFooterComponent } from './trainer/trainer-footer/trainer-footer.component';
 
 
 
@@ -42,6 +47,11 @@ import { TrainerNavbarsComponent } from './trainer/trainer-navbars/trainer-navba
     TrainerComponent,
     ProfileComponent,
     TrainerNavbarsComponent,
+    PasswordResetComponent,
+    CalenderComponent,
+    ChangePasswordComponent,
+    PasswordResetMessageComponent,
+    TrainerFooterComponent,
    
   ],
   imports: [

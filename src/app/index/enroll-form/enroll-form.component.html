@@ -1,127 +1,80 @@
-<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
-    <div class="card card0 border-0">
-        <div class="row d-flex">
-            <div class="row"> <img src="assets/logo.png" class="logo"> </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+  <nav class="navbar navbar-expand-lg bg-info  topnav navbar-fixed logo">
+      <img src="../../../assets/logo.png" height="80px" width="80px" style="margin-left: 5%;">
+      <h6 class="welcome ml-auto">Welcome</h6>
+    </nav>
+</div>
+        <div class="col-md-3 ">
             
             
-            
-                <div class=" border-0 px-4 py-5" id="enroll">
-                    <!-- card2 card -->
-                  <div class="container"> 
-                    <h1 class="login">Fill the form to enroll</h1>  <!--class="mb-0 mr-4 mt-2"-->
-                    <!-- <div class="row mb-4 px-3">
-                        <div class="facebook text-center mr-3">
-                            <div class="fa fa-facebook"></div>
-                        </div>
-                        <div class="twitter text-center mr-3">
-                            <div class="fa fa-twitter"></div>
-                        </div>
-                        <div class="linkedin text-center mr-3">
-                            <div class="fa fa-linkedin"></div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="row px-3 mb-4">
-                        <div class="line"></div> <small class="or text-center">Or</small>
-                        <div class="line"></div>
-                    </div> -->
-                    
-                    <br>
-                    <!-- Enroll Form -->
-                    
-                    
-                    
-                    <br>
-
-                    <div class="row px-3 inpbox"> <label class="mb-1">
-                        <h6 class="mb-0 text-sm">Name</h6>
-                        </label> <input class="mb-4" type="text" name="name" placeholder="Full Name" > 
-                    </div> 
-                        <div class="row px-3 inpbox"> <label class="mb-1">
-                            <h6 class="mb-0 text-sm">Email Address</h6>
-                            </label> <input class="mb-4" type="text" name="email" placeholder="Enter a valid email address" > 
-                        </div>
-                        <div class="row px-3 inpbox"> <label class="mb-1">
-                                <h6 class="mb-0 text-sm">Phone Number</h6>
-                            </label> <input type="text" name="phone" placeholder="Phone Number" > 
-                        </div>
-                        <br>
-                        <div class="row px-3 inpbox"> <label class="mb-1">
-                            <h6 class="mb-0 text-sm">Address</h6>
-                            </label> <input class="mb-4" type="textarea" name="address" placeholder="Permanent Address" > 
-                        </div> 
-                        
-                    <div class="row px-3">
-                        <label class="mb-1">
-                            <h6 class="mb-0 text-sm">Highest Qualification</h6>
-                            </label> 
-                        <select class="form-select form-select-sm user-sel" aria-label=".form-select-sm example">
-                            <option selected>Select</option>
-                            <option value="BE">B.Tech/BE</option>
-                            <option value="ME">M.Tech/ME</option>
-                            <option value="BCA">BCA</option>
-                            <option value="MCA">MCA</option>
-                            <option value="others">Others</option>
-                          </select>
-                    </div><br>
-                    <div class="row px-3 inpbox"> 
-                         <input type="text" name="otherq" placeholder="If others" class="otherinp"> 
-                </div>
-                <br>
-                    <div class="row px-3 inpbox"> <label class="mb-1">
-                        <h6 class="mb-0 text-sm">Skills</h6>
-                    </label> <input type="text" name="skils" placeholder="Skill set"> 
-                </div>
-                <br>
-                    <div class="row px-3">
-                        <label class="mb-1">
-                            <h6 class="mb-0 text-sm">ICTAK Course Handling</h6>
-                            </label> 
-                        <select class="form-select form-select-sm user-sel" aria-label=".form-select-sm example">
-                            <option selected>Select</option>
-                            <option value="CSA">Cyber Security Analyst</option>
-                            <option value="XLP">XR-Learning Path</option>
-                            <option value="DSA">Certified Specialist in Data Science & Analytics</option>
-                            <option value="FSD">Certified Specialist in Full Stack Development</option>
-                            <option value="RPA">Robotic process automation</option>
-                            <option value="DM">Digital Marketing</option>
-                          </select>
-                    </div>
-                    <br>
-                    <div class="row px-3 inpbox"> <label class="mb-1">
-                        <h6 class="mb-0 text-sm">Current Company Name</h6>
-                    </label> <input type="text" name="company" placeholder="Current Company"> 
-                </div>
-                <br>
-                <div class="row px-3 inpbox"> <label class="mb-1">
-                    <h6 class="mb-0 text-sm">Current Designation</h6>
-                </label> <input type="text" name="designation" placeholder="Designation"> 
-            </div>
-            <br>
-            <div class="row px-3 mb-3 inpbox">
-                <label class="mb-1">
-                    <h6 class="mb-0 text-sm">Photo</h6>
-                </label>
-                <input class="form-control form-control-sm" id="formFileSm" type="file">
-              </div>
-                       <div class="btn-group">
-
-                           <div class="row mb-3 px-3"> 
-                            <a routerLink="/welcome">  
-                            <button type="submit" class="btn btn-blue text-center">Submit</button></a>  </div>
-                           <div class="row mb-3 px-3">
-                            <a routerLink="/">  
-                            <button type="submit" class="btn btn-blue text-center">Cancel</button></a>  </div>
-                       </div>
-
-                <!-- End of Enroll form -->
-                </div>
         </div>
-    </div> 
+        <div class="col-md-6 formblock">
+            <h1>Trainer Enrollment Form</h1>
+            <div class="card">
+                <form id="reg_form" name="reg_form" #trainerReg="ngForm">
+                    <div class="controls">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="fname">Firstname *</label> <input id="fname" type="text" name="fname" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required."> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="lname">Lastname *</label> <input id="lname" type="text" name="lname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required."> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="Gender">Gender *</label> <select id="Gender" name="Gender" class="form-control" required="required">
+                                        <option value="Male" selected>Male</option>
+                                        <option value="Female">Female</option>                                   
+                                    </select> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="qualification">Qualification *</label> <select id="qualification" name="qualification" class="form-control" required="required">
+                                        <option value="Male" selected>Male</option>
+                                        <option value="Female">Female</option>                                   
+                                    </select> </div>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="phone">Phone *</label> <input id="phone" type="text" name="phone" class="form-control" placeholder="Please enter your Phone Number  *" required="required"> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="email">Email *</label> <input id="email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required"> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="company">Company *</label> <input id="company" type="text" name="company" class="form-control" placeholder="Current Company *" required="required"> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="designation">Designation *</label> <input id="designation" type="text" name="designation" class="form-control" placeholder="Current Designation *" required="required"> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="address">Address *</label> <input id="address" type="textarea" name="address" class="form-control" placeholder="Permanent Address *" required="required"> </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group"> <label for="skills">Skills *</label> <input id="skills" type="text" name="skills" class="form-control" placeholder="Please enter your Skill set *" required="required"> </div>
 
-    
-        <!-- Footer -->
-        <app-footer></app-footer>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group"> <label for="photo">Photo *</label> <input id="photo" type="file" name="photo" class="form-control"> </div>
+                                
+                            </div>
+                            <div class="col-md-12"> <input type="submit" class="btn btn-info btn-send pt-2 btn-block " value="Submit"> </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
     </div>
-  </div>
-
-
+</div>
