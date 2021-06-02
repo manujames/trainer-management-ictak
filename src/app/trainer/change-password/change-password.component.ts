@@ -9,13 +9,14 @@ import { AuthService } from '../../auth.service';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  user = {
-    role:'',
-    email: '',
-    password: ''
+  credentials = {
+    currentPassword: '',
+    newPassword: ''
   };
 
-  loginState = 'none';
+  repeatedPwd = ''
+
+  status = 'none';
   errorMsg = '';
 
   constructor(private auth:AuthService, private router:Router) { }
@@ -23,20 +24,36 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  resetForm(){
-    this.user = {
-      role:'',
-      email: '',
-      password: ''
-    };
-    this.loginState = 'none';
-    this.errorMsg = '';
-  }
-
-  login() {
-    this.loginState = 'connecting';
-    this.auth.login(this.user)
-
+  changePassword(){
+    if(this.credentials.newPassword != this.repeatedPwd){
+      this.status = 'error';
+      this.errorMsg = "Passwords do not match. Please re enter your passwords";
+      this.credentials.newPassword = '';
+      this.repeatedPwd = '';
+    }
+    else{
+      this.status = 'connecting';
+      this.auth.changePassword(this.credentials)
+      .subscribe(
+        data=>{
+          this.status = 'success';
+          localStorage.setItem('token',data.token);
+          setTimeout(()=>{
+            this.router.navigate(['/trainer']);
+          },1000);
+        },
+        error=>{
+          this.status = 'error'
+          if(error.status === 401){
+            this.errorMsg = error.error;
+          }
+          else{
+            this.errorMsg = 'Sorry! Something went wrong.'
+            console.log(error);
+          }
+        }
+      )
+    }
   }
 
 }

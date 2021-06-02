@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +8,31 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   server_address:string = 'http://localhost:3000'
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router:Router) { }
 
   login(user:any){
     return this.http.post<any>(`${this.server_address}/login`,user)
+  }
+
+  isLoggedIn(){
+    // Return boolean: Token present or not.
+    return !!localStorage.getItem('token');
+  }
+
+  getToken(){
+    return localStorage.getItem('token');  
+  }
+
+  enroll(trainer:any){
+    return this.http.post<any>(`${this.server_address}/trainer/enroll`,trainer)
+  }
+
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
+  }
+
+  changePassword(credentials:any){
+    return this.http.put<any>(`${this.server_address}/changepassword`, credentials)
   }
 }

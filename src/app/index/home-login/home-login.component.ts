@@ -38,14 +38,15 @@ export class HomeLoginComponent implements OnInit {
     this.auth.login(this.user)
     .subscribe(
       data =>{
-        // localStorage.setItem('token',data.token);
-        // this.resetForm();
-        // this.router.navigate(['/']);
         if(data.role == 'admin'){
+          localStorage.setItem('token',data.token);
+          this.resetForm();
           this.loginState = 'success';
           this.router.navigate(['/admin'])
         }
         else if(data.role == 'trainer'){
+          localStorage.setItem('token',data.token);
+          this.resetForm();
           this.loginState = 'success';
           this.router.navigate(['/trainer'])
         }

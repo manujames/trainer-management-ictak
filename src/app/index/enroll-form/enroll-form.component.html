@@ -1,80 +1,149 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-  <nav class="navbar navbar-expand-lg bg-info  topnav navbar-fixed logo">
-      <img src="../../../assets/logo.png" height="80px" width="80px" style="margin-left: 5%;">
-      <h6 class="welcome ml-auto">Welcome</h6>
-    </nav>
-</div>
-        <div class="col-md-3 ">
-            
-            
-        </div>
-        <div class="col-md-6 formblock">
-            <h1>Trainer Enrollment Form</h1>
-            <div class="card">
-                <form id="reg_form" name="reg_form" #trainerReg="ngForm">
-                    <div class="controls">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group"> <label for="fname">Firstname *</label> <input id="fname" type="text" name="fname" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required."> </div>
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div class="register card card0 border-0">
+        <div class="row">
+            <!-- Left side -->
+            <div class="col-md-3 register-left">
+                <img src="assets/logo.png" alt=""/>
+                <h3>Welcome</h3>
+                <a routerLink="/" type="submit">Login</a>
+            </div>
+            <!-- Right side Forms -->
+            <div class="col-md-9 register-right">
+                <div class="tab-content" id="myTabContent">
+                    <h3 class="register-heading">Trainer Enrollment Form</h3>
+                    <form id="enrollForm" name="enrollForm" #enroll="ngForm" (ngSubmit)="register()" novalidate=true>
+                        <div class="row register-form">
+                            <!-- Success/error message card -->
+                            <div id="success" class="text-center col-12" [class.d-none]='status=="none"'>
+                                <div class='alert alert-warning' [class.d-none]='status!="connecting"'>
+                                    <strong>Registering..</strong>
+                                </div>
+                                <div class='alert alert-success' [class.d-none]='status!="success"'>
+                                    <strong>Successfully registered</strong>
+                                </div>
+                                <div class='alert alert-danger' [class.d-none]='status!="error"'>
+                                    <strong>{{errorMsg}}</strong>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group"> <label for="lname">Lastname *</label> <input id="lname" type="text" name="lname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required."> </div>
+                            <!-- End of success/error message card -->
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" placeholder="First Name *" name="fname" required
+                                    #fname='ngModel' [class.is-valid]='fname.valid' [class.is-invalid]='fname.invalid && fname.touched' 
+                                    [(ngModel)]='trainer.fname'/>
+                                <p class='text-danger' [class.d-none]='fname.valid || fname.untouched'>First name can not be blank.</p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" placeholder="Last Name *" name="sname" required
+                                    #sname='ngModel' [class.is-valid]='sname.valid' [class.is-invalid]='sname.invalid && sname.touched' 
+                                    [(ngModel)]='trainer.sname'/>
+                                <p class='text-danger' [class.d-none]='sname.valid || sname.untouched'>Second name can not be blank.</p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" class="form-control" placeholder="Email *" name="email" required pattern='^[a-z0-9.%+]+@[a-z0-9.-]+\.[a-z]{2,4}'
+                                    #email='ngModel' [class.is-valid]='email.valid' [class.is-invalid]='email.invalid && email.touched' 
+                                    [(ngModel)]='trainer.email'/>
+                                <p class='text-danger' [class.d-none]='email.valid || email.untouched'>Please enter a valid email.</p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" minlength="10" maxlength="10" class="form-control" placeholder="Phone *" name="phone" required
+                                    #phone='ngModel' [class.is-valid]='phone.valid' [class.is-invalid]='phone.invalid && phone.touched' 
+                                    [(ngModel)]='trainer.phone'/>
+                                <p class='text-danger' [class.d-none]='phone.valid || phone.untouched'>Please enter a valid 10 digit phone number.</p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="password" class="form-control" placeholder="Password *" name="password" minlength="8" required
+                                    #password='ngModel' [class.is-valid]='password.valid' [class.is-invalid]='password.invalid && password.touched' 
+                                    [(ngModel)]='trainer.password'/>
+                                <p class='text-danger' [class.d-none]='password.valid || password.untouched'>Enter a password of atleast 8 characters long.</p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="password" class="form-control" placeholder="Repeat Password *" name="repwd" required
+                                    #repwd='ngModel' [class.is-invalid]='repwd.invalid && repwd.touched' 
+                                    [(ngModel)]='repeatPassword'/>
+                                <p class='text-danger' [class.d-none]='repwd.valid || repwd.untouched'>Please repeat your password.</p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <select class="form-control" name="gender" required #gender='ngModel' [(ngModel)]='trainer.gender'>
+                                    <option value='' selected>Gender *</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <!-- Show validation message when user leaves these dropdown inputs unselected and enter a value in next input field(skills)  -->
+                                <p class='text-danger' [class.d-none]='gender.valid || (gender.untouched && gender.pristine && (skills.invalid))'>
+                                    Please select a gender.
+                                </p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <select class="form-control" name="course" required #course='ngModel' [(ngModel)]='trainer.course'>
+                                    <option value="" selected>Select your prefered ICTAK course*</option>
+                                    <option *ngFor='let x of courses' value='{{x.courseName}}'>{{x.courseName}}</option>
+                                </select>
+                                <p class='text-danger' [class.d-none]='course.valid || (course.untouched && course.pristine && (skills.invalid))'>
+                                    Please select your prefered course.
+                                </p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <select class="form-control" name="qualification" required #qualification='ngModel' [(ngModel)]='trainer.qualification'>
+                                    <option value="" selected>Highest Qualification *</option>
+                                    <option value="B.Tech/BE">B.Tech/BE</option>
+                                    <option value="M.Tech/ME">M.Tech/ME</option>
+                                    <option value="BCA">BCA</option>
+                                    <option value="MCA">MCA</option>
+                                    <option value="others">Others</option>
+                                </select>
+                                <p class='text-danger' [class.d-none]='qualification.valid || (qualification.untouched && qualification.pristine && (skills.invalid))'>
+                                    Please select your highest qualification.
+                                </p>
+                                <!-- This div will be shown only if selected qualification is others -->
+                                <div [class.d-none]='trainer.qualification!="others"'>
+                                    <!-- required = true if qualification == others else required = false -->
+                                    <input type="text" class="form-control" placeholder="Specify your qualification *" name="othQual" [required]='trainer.qualification=="others"'
+                                        #othQual='ngModel' [class.is-invalid]='othQual.invalid && othQual.touched'
+                                        [(ngModel)]='otherQualification'/>
+                                    <p class='text-danger' [class.d-none]='othQual.valid || othQual.untouched'>Specify your qualification.</p>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" placeholder="Enter your skills seperated by comma(,) *" name="skills" required
+                                    #skills='ngModel' [class.is-valid]='skills.valid' [class.is-invalid]='skills.invalid && skills.touched'
+                                    [(ngModel)]='trainer.skills'/>
+                                <p class='text-danger' [class.d-none]='skills.valid || skills.untouched'>Please enter your skills.</p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" class="form-control" placeholder="Current Company"  name="currCompany" [(ngModel)]='trainer.currCompany'/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text"class="form-control" placeholder="Current Designation" name="currDesig" [(ngModel)]='trainer.currDesig'/>
+                            </div>
+                            <div class="form-group form-group-textarea col-md-6 mb-md-0">
+                                <textarea class="form-control" id="description" placeholder="Address *" name="address" required
+                                    #address="ngModel" [class.is-valid]='address.valid' [class.is-invalid]='address.invalid && address.touched'
+                                    [(ngModel)]="trainer.address"></textarea>
+                                <p class='text-danger' [class.d-none]='address.valid || address.untouched'>Address can not be blank.</p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <!-- <input class="form-control" name="txtEmpPhone" type="file"> -->
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="img">Upload your photo of size less than 1 MB</label>
+                                        <input id="img" name="img" #img=ngModel ngModel="imageSrc" type="file" accept="image/*" (change)="onFileChange($event)" required/>
+                                    </div>
+                                    <div class="col" *ngIf="imageSrc">
+                                        <img [src]="imageSrc" style="height: 135px; width:135px">
+                                    </div>
+                                </div>
+                                <p class='text-danger' [class.d-none]='img.valid || img.untouched'>Select an image.</p>
+                                <p class='text-danger' [class.d-none]='!imgError'>{{imgError}}</p>
+                            </div>
+                            <div class="col-md-8">
+                                <button type="submit" class="btn btnRegister"[disabled]='enroll.form.invalid || imgError || !imageSrc'>Register</button>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group"> <label for="Gender">Gender *</label> <select id="Gender" name="Gender" class="form-control" required="required">
-                                        <option value="Male" selected>Male</option>
-                                        <option value="Female">Female</option>                                   
-                                    </select> </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group"> <label for="qualification">Qualification *</label> <select id="qualification" name="qualification" class="form-control" required="required">
-                                        <option value="Male" selected>Male</option>
-                                        <option value="Female">Female</option>                                   
-                                    </select> </div>
-                            </div>
-                            
-                            
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group"> <label for="phone">Phone *</label> <input id="phone" type="text" name="phone" class="form-control" placeholder="Please enter your Phone Number  *" required="required"> </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group"> <label for="email">Email *</label> <input id="email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required"> </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group"> <label for="company">Company *</label> <input id="company" type="text" name="company" class="form-control" placeholder="Current Company *" required="required"> </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group"> <label for="designation">Designation *</label> <input id="designation" type="text" name="designation" class="form-control" placeholder="Current Designation *" required="required"> </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group"> <label for="address">Address *</label> <input id="address" type="textarea" name="address" class="form-control" placeholder="Permanent Address *" required="required"> </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group"> <label for="skills">Skills *</label> <input id="skills" type="text" name="skills" class="form-control" placeholder="Please enter your Skill set *" required="required"> </div>
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group"> <label for="photo">Photo *</label> <input id="photo" type="file" name="photo" class="form-control"> </div>
-                                
-                            </div>
-                            <div class="col-md-12"> <input type="submit" class="btn btn-info btn-send pt-2 btn-block " value="Submit"> </div>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="col-md-3"></div>
     </div>
+    <!-- Footer -->
+    <app-footer></app-footer>
 </div>

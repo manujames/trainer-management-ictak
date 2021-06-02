@@ -14,22 +14,25 @@ import { PasswordResetMessageComponent} from './index/password-reset-message/pas
 import { ChangePasswordComponent } from './trainer/change-password/change-password.component'
 import { CalenderComponent } from './trainer/calender/calender.component'
 import { ProfileComponent } from './trainer/profile/profile.component'
+import { AuthGuard } from './auth.guard';
+import { TrainerApproveComponent } from './admin/trainer-approve/trainer-approve.component';
 
 const routes: Routes = [
   {path:'',component:HomeLoginComponent},
   {path:'enroll',component:EnrollFormComponent},
   {path:'welcome',component:WelcomeMessageComponent},
-  {path:'admin',component:AdminDashboardComponent},
-  {path:'admintable',component:AdminDataTableComponent},
-  {path:'requests',component:RequestsComponent},
-  {path:'settings',component:SettingsComponent},
-  {path:'courses',component:CoursesComponent},
-  {path:'trainer',component:TrainerComponent},
+  {path:'admin',canActivate:[AuthGuard],component:AdminDashboardComponent},
+  {path:'admintable',canActivate:[AuthGuard],component:AdminDataTableComponent},
+  {path:'requests',canActivate:[AuthGuard],component:RequestsComponent},
+  {path:'settings',canActivate:[AuthGuard],component:SettingsComponent},
+  {path:'courses',canActivate:[AuthGuard],component:CoursesComponent},
+  {path:'trainer',canActivate:[AuthGuard],component:TrainerComponent},
   {path:'passwordreset',component:PasswordResetComponent},
   {path:'passwordresetmessage',component:PasswordResetMessageComponent},
-  {path:'changepassword',component:ChangePasswordComponent },
-  {path:'calender',component:CalenderComponent},
-  {path:'profile',component:ProfileComponent}
+  {path:'changepassword',canActivate:[AuthGuard],component:ChangePasswordComponent },
+  {path:'calender',canActivate:[AuthGuard],component:CalenderComponent},
+  {path:'profile',canActivate:[AuthGuard],component:ProfileComponent},
+  {path:'trainer/:id',canActivate:[AuthGuard],component:TrainerApproveComponent}
 ];
 
 @NgModule({

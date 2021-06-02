@@ -4,26 +4,21 @@
     <!-- <h6 class="brand">ICT Academy of Kerala</h6> -->
   </div>
   <ul class="sidebar-navigation">
-    <li class="header">Navigation</li>
-    <li>
-      <a routerLink="" class="navlink">
-        <i class="fa fa-home " aria-hidden="true"></i> Homepage
-      </a>
-    </li>
+    <li class="header">Home</li>
     <li>
       <a routerLink="/admin" class="navlink">
-        <i class="fas fa-tachometer-alt" aria-hidden="true"></i> Dashboard
+        <i class="fa fa-home" aria-hidden="true"></i> Dashboard
       </a>
     </li>
-    <li class="header">Options</li>
-    <li>
-      <a routerLink="/admin" class="navlink">
-        <i class="fa fa-users" aria-hidden="true"></i> Trainers
-      </a>
-    </li>
+    <li class="header">Navigations</li>
     <li>
       <a routerLink="/requests" class="navlink">
         <i class="fas fa-envelope-open-text" aria-hidden="true"></i> Requests 
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin" class="navlink">
+        <i class="fa fa-users" aria-hidden="true"></i> Trainers
       </a>
     </li>
     <li>
@@ -31,9 +26,15 @@
         <i class="fas fa-book-open" aria-hidden="true"></i> Courses
       </a>
     </li>
+    <li class="header">Settings</li>
     <li>
       <a routerLink="/settings" class="navlink">
-        <i class="fas fa-cog" aria-hidden="true"></i> Settings 
+        <i class="fas fa-key" aria-hidden="true"></i> Change Password 
+      </a>
+    </li>
+    <li>
+      <a routerLink="/add-admin" class="navlink">
+        <i class="fas fa-user-shield" aria-hidden="true"></i> Add New Admin 
       </a>
     </li>
   </ul>
@@ -48,8 +49,8 @@
           <a href="#"><i class="zmdi zmdi-notifications text-danger"></i>
           </a>
         </li> -->
-        <li><a href="#">
-            <button type="button" class="btn btn-info ms-auto logoutbtn">Logout</button>
+        <li><a>
+            <button type="button" (click)="logout()" class="btn btn-info ms-auto logoutbtn">Logout</button>
         </a></li>
       </ul>
     </div>

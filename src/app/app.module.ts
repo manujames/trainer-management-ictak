@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,9 @@ import { CalenderComponent } from './trainer/calender/calender.component';
 import { ChangePasswordComponent } from './trainer/change-password/change-password.component';
 import { PasswordResetMessageComponent } from './index/password-reset-message/password-reset-message.component';
 import { TrainerFooterComponent } from './trainer/trainer-footer/trainer-footer.component';
+import { ContentService } from './content.service';
+import { TokenIntercepterService } from './token-intercepter.service';
+import { TrainerApproveComponent } from './admin/trainer-approve/trainer-approve.component';
 
 
 
@@ -52,6 +55,7 @@ import { TrainerFooterComponent } from './trainer/trainer-footer/trainer-footer.
     ChangePasswordComponent,
     PasswordResetMessageComponent,
     TrainerFooterComponent,
+    TrainerApproveComponent,
    
   ],
   imports: [
@@ -62,7 +66,13 @@ import { TrainerFooterComponent } from './trainer/trainer-footer/trainer-footer.
     
   ],
   providers: [
-    AuthService
+    AuthService,
+    ContentService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenIntercepterService,
+      multi:true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,32 @@
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+.btn-blue {
+    background-color: #2781aa;
+    width: 100%;
+    color: #fff;
+    border-radius: 2px
+}
+
+.btn-red {
+    background-color: #aa2738;
+    width: 100%;
+    color: #fff;
+    border-radius: 2px
+}
+
+.btn-green {
+    background-color: #27aa6d;
+    width: 100%;
+    color: #fff;
+    border-radius: 2px
+}
+
+.btn:hover {
+    background-color: #000;
+    cursor: pointer
+}

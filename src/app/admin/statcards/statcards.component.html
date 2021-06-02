@@ -1,18 +1,17 @@
 <div class="container ">
     <div class="row cardspec">
         <div class="col-lg-4 col-sm-6">
-            <div class="card-box bg-blue cardwid">
+            <div class="card-box bg-red cardwid">
                 <div class="inner">
-                    <h3> 15+ </h3>
-                    <p> Courses </p>
+                    <h3>{{counts.requests}}</h3>
+                    <p>Enrollment Requests</p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <i class="fa fa-users"></i>
                 </div>
-                <a routerLink="/courses" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                <a routerLink="/requests" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-
         <!-- <div class="col-lg-3 col-sm-6">
             <div class="card-box bg-green">
                 <div class="inner">
@@ -28,31 +27,26 @@
         <div class="col-lg-4 col-sm-6">
             <div class="card-box bg-orange cardwid">
                 <div class="inner">
-                    <h3> 20+ </h3>
+                    <h3>{{counts.trainers}}</h3>
                     <p> Trainers</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-user-plus" aria-hidden="true"></i>
                 </div>
-                <a routerLink='/trainer' class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                <a routerLink='/admin' class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <div class="col-lg-4 col-sm-6">
-            <div class="card-box bg-red cardwid">
+            <div class="card-box bg-blue cardwid">
                 <div class="inner">
-                    <h3> 30000+</h3>
-                    <p>Students</p>
+                    <h3>{{counts.courses}}</h3>
+                    <p> Courses </p>
                 </div>
                 <div class="icon">
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                 </div>
-                <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                <a routerLink="/courses" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
     </div>
-    <!-- <div class="row">
-        <div class="col-lg-3 col-sm-6">
-            <a href="http://www.uiuxstream.com/dashboard-user-profile-page-design-using-bootstrap-4/">uiuxstream</a>
-        </div>
-    </div> -->
 </div>
