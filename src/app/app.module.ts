@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import interactionPlugin from '@fullcalendar/interaction';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeLoginComponent } from './index/home-login/home-login.component';
@@ -30,7 +34,12 @@ import { ContentService } from './content.service';
 import { TokenIntercepterService } from './token-intercepter.service';
 import { TrainerApproveComponent } from './admin/trainer-approve/trainer-approve.component';
 
-
+FullCalendarModule.registerPlugins([
+  dayGridPlugin,
+  timeGridPlugin,
+  listPlugin,
+  interactionPlugin
+])
 
 @NgModule({
   declarations: [
@@ -63,6 +72,7 @@ import { TrainerApproveComponent } from './admin/trainer-approve/trainer-approve
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    FullCalendarModule
     
   ],
   providers: [

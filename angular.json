@@ -31,6 +31,11 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@fullcalendar/daygrid/main.css",
+              "node_modules/@fullcalendar/list/main.css",
+              "node_modules/@fullcalendar/timegrid/main.css",
+              "node_modules/@fullcalendar/common/main.css",
+              "node_modules/fullcalendar/main.min.css",
               "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css",
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -38,6 +43,12 @@
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
+              "node_modules/@fullcalendar/list/main.js",
+              "node_modules/@fullcalendar/timegrid/main.js",
+              "node_modules/@fullcalendar/interaction/main.js",
+              "node_modules/@fullcalendar/daygrid/main.js",
+              "node_modules/fullcalendar/main.min.js",
+              "node_modules/@fullcalendar/common/main.js",
               "node_modules/jquery-easing/dist/jquery.easing.1.3.umd.min.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
@@ -104,17 +115,28 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@fullcalendar/daygrid/main.css",
+              "node_modules/@fullcalendar/list/main.css",
+              "node_modules/@fullcalendar/timegrid/main.css",
+              "node_modules/@fullcalendar/common/main.css",
+              "node_modules/fullcalendar/main.min.css",
               "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css",
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js",
               "node_modules/jquery/dist/jquery.js",
+              "node_modules/@fullcalendar/list/main.js",
+              "node_modules/@fullcalendar/timegrid/main.js",
+              "node_modules/@fullcalendar/interaction/main.js",
+              "node_modules/@fullcalendar/daygrid/main.js",
+              "node_modules/fullcalendar/main.min.js",
+              "node_modules/@fullcalendar/common/main.js",
               "node_modules/jquery-easing/dist/jquery.easing.1.3.umd.min.js",
               "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
               "node_modules/sb-admin-2/js/sb-admin-2.js"
             ]
           }
