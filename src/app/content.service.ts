@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class ContentService {
 
-  server_address:string = 'http://localhost:3000'
+  // server_address:string = '/api';                    // For production build
+  server_address:string = 'http://localhost:3000';      // For development
   constructor(private http:HttpClient) { }
 
   getCourses(){

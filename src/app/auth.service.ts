@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  server_address:string = 'http://localhost:3000'
+  // server_address:string = '/api';                    // For production build
+  server_address:string = 'http://localhost:3000';      // For development
   constructor(private http:HttpClient, private router:Router) { }
 
   login(user:any){
