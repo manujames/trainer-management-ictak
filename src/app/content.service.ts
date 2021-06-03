@@ -44,4 +44,12 @@ export class ContentService {
   deleteTrainer(id:any){
     return this.http.delete<any>(`${this.server_address}/admin/delete-trainer/${id}`)
   }
+
+  addCourse(course:any){
+    return this.http.post<any>(`${this.server_address}/admin/add-course/`,course)
+  }
+
+  addBatch(batch:any){
+    return this.http.post<any>(`${this.server_address}/admin/add-batch/`,batch)
+  }
 }

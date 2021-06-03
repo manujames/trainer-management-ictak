@@ -9,19 +9,82 @@
           <h4>Courses</h4>
       </div>
     </div>
+    <br>
+    <!-- Add course/batch sections -->
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">library_add</i>Add New Course</h6>
+            <form name="addCourseForm" #addCourseForm="ngForm" (ngSubmit)="addCourse(addCourseForm.form)" novalidate=true>
+              <div class="form-group">
+                <input class="form-control form-control-sm" type="text" id="courseId" name="courseId" placeholder="Course Code (Eg:FSD)*" required
+                  #courseId='ngModel' [class.is-valid]='courseId.valid' [class.is-invalid]='courseId.invalid && courseId.touched' 
+                  [(ngModel)]='newCourse.id'/>
+                <small class='text-danger' [class.d-none]='courseId.valid || courseId.untouched'>Course code can not be blank</small>
+              </div>
+              <div class="form-group">
+                <input class="form-control form-control-sm" type="text" name="courseName" placeholder="Course Name*" required
+                  #courseName='ngModel' [class.is-valid]='courseName.valid' [class.is-invalid]='courseName.invalid && courseName.touched' 
+                  [(ngModel)]='newCourse.name'/>
+                <small class='text-danger' [class.d-none]='courseName.valid || courseName.untouched'>Course name can not be blank</small>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-sm btn-blue col-6" [disabled]='addCourseForm.form.invalid'>Add Course</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">group_add</i>Add New Batch</h6>
+            <form name="addBatchForm" #addBatchForm="ngForm" (ngSubmit)="addBatch(addBatchForm.form)" novalidate=true>
+              <div class="form-group">
+                <select class="form-control form-control-sm" name="courseCode" required #courseCode='ngModel' [(ngModel)]='newBatch.course'>
+                    <option value="" selected>Select course*</option>
+                    <option *ngFor='let x of courses' value='{{x.courseId}}'>{{x.courseId}}</option>
+                </select>
+                <small class='text-danger' [class.d-none]='courseCode.valid || (courseCode.untouched && courseCode.pristine && (batchName.invalid))'>
+                    Select a course.
+                </small>
+              </div>
+              <div class="form-group">
+                <input class="form-control form-control-sm" type="text" name="batchName" placeholder="Batch Name*" required
+                  #batchName='ngModel' [class.is-valid]='batchName.valid' [class.is-invalid]='batchName.invalid && batchName.touched' 
+                  [(ngModel)]='newBatch.name'/>
+                <small class='text-danger' [class.d-none]='batchName.valid || batchName.untouched'>Batch name can not be blank</small>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-sm btn-blue col-6" [disabled]='addBatchForm.form.invalid'>Add Batch</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of add course/batch sections -->
+
+    <!-- Table -->
     <table class="table table-hover table-bordered">
       <thead>
         <tr>
-          <th scope="col">ID</th>
+          <th scope="col">Course Code</th>
           <th scope="col">Course Name</th>
+          <th scope="col">Batches</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let course of courses">
           <td>{{course.courseId}}</td>
           <td>{{course.courseName}}</td>
+          <td><span *ngFor="let batch of course.batches">{{batch.id}} </span></td>
         </tr>
       </tbody>
     </table>
-  </div>
+    <!-- End of table -->
+  <div>
+      
 </div>

@@ -35,4 +35,12 @@ export class AuthService {
   changePassword(credentials:any){
     return this.http.put<any>(`${this.server_address}/changepassword`, credentials)
   }
+
+  getResetCode(credentials:any){
+    return this.http.post<any>(`${this.server_address}/getresetcode`, credentials)
+  }
+
+  resetPassword(credentials:any){
+    return this.http.post<any>(`${this.server_address}/reset-password`, credentials)
+  }
 }
