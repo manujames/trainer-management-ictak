@@ -19,6 +19,10 @@ export class AuthService {
     return !!localStorage.getItem('token');
   }
 
+  getRole(){
+    return this.http.get(`${this.server_address}/role`)
+  }
+
   getToken(){
     return localStorage.getItem('token');  
   }

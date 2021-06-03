@@ -68,9 +68,9 @@
     color: #fff;
     font-weight: 600;
     width: 50%;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
-.btnRegister:hover {
+.btnRegister:hover:enabled {
     background-color: #000;
     cursor: pointer
 }
@@ -249,7 +249,7 @@ a {
     border-radius: 2px
 }
 
-.btn-blue:hover {
+.btn-blue:hover:enabled {
     background-color: #000;
     cursor: pointer
 }

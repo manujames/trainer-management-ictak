@@ -21,6 +21,23 @@ export class HomeLoginComponent implements OnInit {
   constructor(private auth:AuthService, private router:Router) { }
 
   ngOnInit(): void {
+    // If already logged in, get user role from server and redirect to apropriate page
+    if(this.auth.isLoggedIn()){
+      this.auth.getRole()
+      .subscribe(
+        (data:any)=>{
+          if(data.role == 'admin'){
+            this.router.navigate(['/admin']);
+          }
+          else if(data.role == 'trainer'){
+            this.router.navigate(['/trainer']);
+          }
+          else{
+            console.log(data);
+          }
+        }
+      )
+    }
   }
 
   resetForm(){

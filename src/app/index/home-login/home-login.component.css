@@ -139,7 +139,7 @@ a {
     border-radius: 2px
 }
 
-.btn-blue:hover {
+.btn-blue:hover:enabled {
     background-color: #000;
     cursor: pointer
 }

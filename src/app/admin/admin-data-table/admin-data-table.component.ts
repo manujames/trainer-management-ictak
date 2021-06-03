@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ContentService } from 'src/app/content.service';
 // import * as $ from 'jquery'
 
@@ -10,7 +11,7 @@ import { ContentService } from 'src/app/content.service';
 export class AdminDataTableComponent implements OnInit {
 
   trainers:any;
-  constructor(private content:ContentService) { }
+  constructor(private content:ContentService, private router:Router) { }
 
   ngOnInit(): void {
     this.content.getAllTrainers()
@@ -19,7 +20,13 @@ export class AdminDataTableComponent implements OnInit {
         this.trainers = data;
       },
       error=>{
-
+        if(error.status == 403){
+          this.router.navigate(['/trainer'])
+        }
+        else{
+          console.log(error);
+          alert("Sorry, Something went wrong, pleast try later");
+        }
       }
     );
   }
